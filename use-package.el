@@ -771,10 +771,6 @@ If the package is installed, its entry is removed from
       (push `(,use-package-pre-ensure-function
               ',name ',ensure ',state)
             body))
-     ((bound-and-true-p byte-compile-current-file)
-      ;; Eval when byte-compiling,
-      (funcall use-package-ensure-function
-               name ensure state :byte-compile))
      ;;  or else wait until runtime.
      (t (push `(,use-package-ensure-function
                 ',name ',ensure ',state :ensure)
